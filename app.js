@@ -23,6 +23,28 @@ app.post('/', function (req, res) {
     res.render('homePage');
   })
 
+
+const mysql = require('mysql');
+
+// Tạo kết nối cơ sở dữ liệu sử dụng biến môi trường
+var connection_db = mysql.createConnection({
+   host: process.env.DB_HOST,     // Thay thế 'localhost' bằng giá trị từ .env
+   user: process.env.DB_USER,     // Thay thế 'root' bằng giá trị từ .env
+   password: process.env.DB_PASSWORD, // Thay thế '123456Aaz' bằng giá trị từ .env
+   port: process.env.DB_PORT,     // Thay thế 3306 bằng giá trị từ .env
+   database: process.env.DB_NAME  // Thay thế 'testtt' bằng giá trị từ .env
+});
+
+// Kết nối tới cơ sở dữ liệu
+connection_db.connect((err) => {
+   if (err) {
+      console.error('Error connecting to the database:', err.stack);
+      return;
+   }
+   console.log('Connected to the database as ID:', connection_db.threadId);
+});
+
+
 // Kết nối đến MySQL
 db.connect((err) => {
   if (err) throw err;
