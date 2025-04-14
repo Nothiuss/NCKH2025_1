@@ -23,41 +23,6 @@ app.post('/', function (req, res) {
     res.render('homePage');
   })
 
-
-
-
-//connecting MySQL
-var mysql = require('mysql2'); // nhúng module mysql
-const { console } = require("inspector");
-
-
-var connection_db = mysql.createConnection ({
-   host: 'localhost',
-   user: 'root',
-   password: '123456Aaz',
-   port: 3306,
-   database: 'testtt'  //tên database muốn kết nối
-});
-
-
-// Kết nối MySQL và truy vấn dữ liệu
-connection_db.connect((err) => {
-  if (err) {
-    console.error("Kết nối MySQL thất bại:", err);
-    return;
-  }
-  console.log("Kết nối CSDL thành công!");
-});
-
-// Thông tin kết nối
-const db = mysql.createConnection({
-  host: 'gondola.proxy.rlwy.net',
-  user: 'root',
-  password: 'jlaqyEoOcgBHrPmEXgfPHUfmdBCpODWS',
-  database: 'railway',
-  port: 50130,
-});
-
 // Kết nối đến MySQL
 db.connect((err) => {
   if (err) throw err;
