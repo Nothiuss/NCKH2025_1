@@ -26,8 +26,7 @@ function updateCharts(year) {
 // Hàm vẽ biểu đồ tháng
 function renderMonthChart(year) {
   // Xây dựng URL API
-  const apiUrl = 'http://localhost:8000/api/data_month_by_year';
-
+  const apiUrl = `${process.env.DB_HOST}/api/data_month_by_year`;
 
   // Lấy dữ liệu từ API
   fetch(apiUrl)
