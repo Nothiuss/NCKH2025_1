@@ -44,13 +44,10 @@ connection_db.connect((err) => {
    console.log('Connected to the database as ID:', connection_db.threadId);
 });
 
-
-// Kết nối đến MySQL
-db.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL');
+db.query('SELECT * FROM users', (err, results) => {
+    if (err) throw err;
+    console.log(results);
 });
-
 
 // Truy cập biến môi trường
 const apiKey = process.env.API_KEY;
